@@ -1,0 +1,94 @@
+import React from "react";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+import styled from "styled-components";
+import Head from "next/head";
+import formatCurrency from "./utils/formatCurrency";
+import AddToCart from "../components/AddToCart";
+
+const SINGLE_ITEM_QUERY = gql`
+  query SINGLE_ITEM_QUERY($id: ID!) {
+    item(where: { id: $id }) {
+      id
+      title
+      price
+      description
+      image
+    }
+  }
+`;
+
+const SingleProdcutStyles = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-template-rows: 1fr;
+
+  /* grid-auto-columns: 1fr;
+  grid-auto-flow: column; */
+  margin: 4rem auto;
+  grid-gap: 2rem;
+  justify-items: center;
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    /* grid-row: auto;
+    max-height: 100%; */
+  }
+
+  p {
+    font-size: 1.5rem;
+    line-height: 2;
+    white-space: pre-wrap;
+    text-align: left;
+  }
+
+  h2 {
+    padding: 1rem 0rem;
+    font-size: 3rem;
+  }
+
+  span {
+    padding: 2rem 0rem;
+  }
+
+  .details {
+    margin: 2rem;
+    font-size: 2rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const SingleProduct = props => {
+  const { id } = props;
+  return (
+    <Query query={SINGLE_ITEM_QUERY} variables={{ id }}>
+      {({ data, loading, error }) => {
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>{error.message}</p>;
+        const { title, image, price, description } = data.item;
+        return (
+          <SingleProdcutStyles>
+            <Head>
+              <title>{title}</title>
+            </Head>
+            {image && <img src={image} />}
+            <div className="details">
+              <h2>{title}</h2>
+              <span>{formatCurrency(price)}</span>
+              <AddToCart id={id} />
+              <p>{description}</p>
+            </div>
+          </SingleProdcutStyles>
+        );
+      }}
+    </Query>
+  );
+};
+
+export default SingleProduct;
