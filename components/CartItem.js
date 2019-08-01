@@ -34,9 +34,6 @@ const CartItemStyles = styled.div`
     font-size: 1.2rem;
     color: ${props => props.theme.grey};
   }
-
-  .quantity {
-  }
 `;
 
 const Wrapper = styled.div`
