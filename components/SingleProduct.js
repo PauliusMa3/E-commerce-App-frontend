@@ -23,9 +23,8 @@ const SingleProdcutStyles = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: 1fr;
   grid-template-rows: 1fr;
+  max-width: 1200px;
 
-  /* grid-auto-columns: 1fr;
-  grid-auto-flow: column; */
   margin: 4rem auto;
   grid-gap: 2rem;
   justify-items: center;
@@ -33,8 +32,6 @@ const SingleProdcutStyles = styled.div`
     width: 100%;
     height: 400px;
     object-fit: contain;
-    /* grid-row: auto;
-    max-height: 100%; */
   }
 
   p {
