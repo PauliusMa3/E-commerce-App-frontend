@@ -2,7 +2,7 @@ import Products from "../components/Products";
 
 const Home = props => (
   <div>
-    <Products />
+    <Products page={parseFloat(props.query.page) || 1} />
   </div>
 );
 
