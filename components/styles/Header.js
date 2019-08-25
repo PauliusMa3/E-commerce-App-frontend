@@ -3,15 +3,38 @@ import styled from "styled-components";
 const StyledHeader = styled.header`
   width: 100%;
   flex-shrink: 0;
+  height: 150px;
+
+  /* .sub-bar {
+    display: none;
+  } */
+
+  .menu-icon {
+    display: none;
+    @media only screen and (min-width: 320px) and (max-width: 600px) {
+      display: block;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      margin-left: auto;
+    }
+  }
 
   .bar {
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: flex-end;
     background: ${props => props.theme.offWhite};
-    /* position: fixed;
-    top: 0;
-    width: 100%; */
+
+    @media only screen and (min-width: 320px) and (max-width: 600px) {
+      padding: 1rem;
+      align-items: center;
+
+      h1 {
+        margin: 0;
+      }
+    }
   }
 
   .sub-bar {

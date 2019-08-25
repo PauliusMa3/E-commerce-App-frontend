@@ -9,9 +9,9 @@ const Form = styled.form`
   position: relative;
   input {
     width: 100%;
-    padding: 0.7rem 1.2rem;
-    font-size: 1.6rem;
-
+    padding: 1rem 1.2rem;
+    font-size: 1.8rem;
+    border: 1px solid ${props => props.theme.lightgrey};
     &:focus {
       outline: none;
     }

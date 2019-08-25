@@ -9,6 +9,11 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
 
+  @media only screen and (min-width: 320px) and (max-width: 600px) {
+    width: 90%;
+    padding: 8px;
+  }
+
   label {
     display: block;
     font-size: 1.6rem;

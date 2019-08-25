@@ -27,7 +27,6 @@ const ALL_PRODUCTS_QUERY = gql`
 `;
 
 const Products = props => {
-  console.log("kur gi tas musu puslapis? : ", props.page);
   const checkPermissions = (user, item) => {
     if (!user) {
       return false;

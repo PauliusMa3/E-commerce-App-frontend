@@ -5,18 +5,17 @@ import User from "./User";
 import { Mutation } from "react-apollo";
 import Signout from "./Signout";
 import { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION } from "./Cart";
-import MenuIcon from "../static/icons/menu.svg";
+
 import CartIcon from "../assets/icons/shopping-cart.svg";
 
-const Nav = () => (
+const Nav = props => (
   <User>
     {({ data: { me } }) => {
       return (
-        <NavStyles>
+        <NavStyles expanded={props.expanded} onClick={props.onClick}>
           <Link href="/products">
             <a>Products</a>
           </Link>
-          <img className="menu-icon" src={MenuIcon} />
           {me && (
             <>
               <Link href="/sell">

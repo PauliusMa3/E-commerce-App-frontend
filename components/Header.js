@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./Nav";
 import Link from "next/link";
 import styled from "styled-components";
 import StyledHeader from "./styles/Header";
 import Cart from "./Cart";
 import SearchForm from "./SearchForm";
+import MenuIcon from "../static/icons/menu.svg";
 
 import nprogress from "nprogress";
 import Router from "next/router";
@@ -34,31 +35,37 @@ const Logo = styled.h1`
   }
 `;
 
-const Header = () => (
-  <StyledHeader>
-    <div className="bar">
-      <Logo>
-        <Link href="/">
-          <a>Tracky-Tronics</a>
-        </Link>
-      </Logo>
-      <Nav />
+const Header = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+  return (
+    <StyledHeader>
+      <div className="bar">
+        <Logo>
+          <Link href="/">
+            <a>Tracky-Tronics</a>
+          </Link>
+        </Logo>
 
-      <Cart />
-    </div>
-    <div className="sub-bar">
-      <SearchForm />
-    </div>
-    {/* <div className="header-box">
-      <h1 className="heading-primary">
-        <span className="heading-primary--main">Tracky-tronics</span>
-        <span className="heading-primary--sub"> is everything you need</span>
-      </h1>
-      <Link href="/products">
-        <a className="btn-header">Discover products</a>
-      </Link>
-    </div> */}
-  </StyledHeader>
-);
+        <img
+          src={MenuIcon}
+          className="menu-icon"
+          onClick={() => setToggleMenu(!toggleMenu)}
+        />
+
+        <Nav
+          expanded={toggleMenu}
+          onClick={() => {
+            setToggleMenu(!toggleMenu);
+          }}
+        />
+
+        <Cart />
+      </div>
+      <div className="sub-bar">
+        <SearchForm />
+      </div>
+    </StyledHeader>
+  );
+};
 
 export default Header;

@@ -21,7 +21,7 @@ const SINGLE_ITEM_QUERY = gql`
 const SingleProdcutStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-auto-rows: 1fr;
+  /* grid-auto-rows: 1fr; */
   grid-template-rows: 1fr;
   max-width: 1200px;
 

@@ -6,17 +6,22 @@ const NavStyles = styled.div`
   margin: 0;
   padding: 0;
 
-  .menu-icon {
-    display: none;
-    @media only screen and (min-width: 320px) and (max-width: 600px) {
-      display: block;
-      height: 5rem;
-      background: white;
-      display: flex;
-      align-items: center;
-      border-radius: 50%;
-      padding: 1rem;
-    }
+  @media only screen and (min-width: 320px) and (max-width: 600px) {
+    display: ${props => (props.expanded ? "flex" : "none")};
+
+    flex-direction: column;
+    width: 0%;
+    justify-content: center;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    z-index: 9999;
+    background: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   a,
@@ -34,16 +39,22 @@ const NavStyles = styled.div`
     cursor: pointer;
     position: relative;
 
+    @media only screen and (min-width: 320px) and (max-width: 600px) {
+      font-size: 2rem;
+      color: white;
+      &:hover,
+      &:focus {
+        color: ${props => props.theme.red};
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+
     img {
       height: 20px;
       color: ${props => props.theme.black};
-    }
-
-    @media only screen and (min-width: 320px) and (max-width: 600px) {
-      a,
-      button {
-        display: none;
-      }
     }
 
     &:after {
