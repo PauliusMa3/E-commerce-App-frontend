@@ -50,6 +50,7 @@ class TakeMoney extends Component {
                 <StripeCheckout
                   name="Tracky Tronics"
                   currency="EUR"
+                  billingAddress
                   description={`Order of ${me.cart.length} items!`}
                   amount={calculateTotalPrice(me.cart)}
                   stripeKey="pk_test_fevI9JSzAJhh9zQ6mcrd3AMP00A1OCChOa"

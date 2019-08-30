@@ -10,9 +10,11 @@ const theme = {
   lightGrey200: "#EEEEEE",
   grey: "#9E9E9E",
   blue: "#1E88E5",
+  darkerBlue: "#187bd1",
   darkBlue: "#1A237E",
   red: "#D50000",
   lightRed: "#E53935",
+  darkerRed: "#c60000",
   black: "#393939",
   maxWidth: "1300px",
   green: "#4CAF50"
@@ -28,10 +30,11 @@ const StyledPage = styled.div`
 `;
 
 const Inner = styled.div`
-  max-width: 1300px;
+  /* max-width: 1300px; */
   margin: 0 auto;
   flex: 1 0 auto;
   width: 100%;
+  position: relative;
 `;
 
 class Pages extends Component {

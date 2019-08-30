@@ -13,6 +13,15 @@ const GlobalStyles = createGlobalStyle`
       font-style: normal;
       font-weight: normal;
   }
+
+  @font-face {
+      font-family: 'chilanka-regular';
+      src: url('../static/Chilanka-Regular.ttf')
+      format('truetype');
+      font-style: normal;
+      font-weight: normal;
+  }
+
     html {
         font-size: 62.5%;
         box-sizing: border-box;
