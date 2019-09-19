@@ -18,12 +18,28 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
   }
+
+
 
   img {
     object-fit: cover;
     height: 100%;
     width: 100%;
+
+
   }
 
   h1 {
@@ -40,6 +56,7 @@ const Wrapper = styled.div`
     border-radius: 10px;
     text-align: center;
     position: absolute;
+    z-index: 2;
     font-size: 2rem;
     box-shadow: 0 4px 12px rgba(102, 102, 102, 0.15);
 

@@ -116,7 +116,6 @@ const CartItem = props => {
           {(addToCart, { loading }) => (
             <Button
               disabled={loading}
-              class="plus-btn"
               type="button"
               name="button"
               onClick={addToCart}
@@ -141,7 +140,6 @@ const CartItem = props => {
           {(updateQuantity, { loading }) => (
             <Button
               disabled={loading}
-              class="minus-btn"
               type="button"
               name="button"
               onClick={updateQuantity}
