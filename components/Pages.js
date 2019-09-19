@@ -17,7 +17,9 @@ const theme = {
   darkerRed: "#c60000",
   black: "#393939",
   maxWidth: "1300px",
-  green: "#4CAF50"
+  green: "#4CAF50",
+  lightYellow: '#FFED85',
+  yellow: '#FFD700'
 };
 
 const StyledPage = styled.div`

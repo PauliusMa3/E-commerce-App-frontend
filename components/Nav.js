@@ -37,9 +37,14 @@ const Nav = props => (
           )}
 
           {!me && (
-            <Link href="/login">
-              <a>Sign in</a>
-            </Link>
+            <>
+              <Link href="/login">
+                <a>Sign in</a>
+              </Link>
+              <Link href="/contact-us">
+                <a>Contact</a>
+              </Link>
+            </>
           )}
         </NavStyles>
       );

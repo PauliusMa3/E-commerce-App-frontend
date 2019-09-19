@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Head from "next/head";
 import formatCurrency from "./utils/formatCurrency";
 import AddToCart from "../components/AddToCart";
+import AddReview from "./addReview";
+import Reviews from "./Reviews";
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -14,6 +16,15 @@ const SINGLE_ITEM_QUERY = gql`
       price
       description
       image
+      reviews {
+        text
+        rating
+        createdAt
+        author {
+          name
+          surname
+        }
+      }
     }
   }
 `;
@@ -23,9 +34,7 @@ const SingleProdcutStyles = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   /* grid-auto-rows: 1fr; */
   grid-template-rows: 1fr;
-  max-width: 1200px;
 
-  margin: 4rem auto;
   grid-gap: 2rem;
   justify-items: center;
   img {
@@ -61,6 +70,12 @@ const SingleProdcutStyles = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  max-width: 1000px;
+
+  margin: 4rem auto;
+`;
+
 const SingleProduct = props => {
   const { id } = props;
   return (
@@ -68,20 +83,25 @@ const SingleProduct = props => {
       {({ data, loading, error }) => {
         if (loading) return <p>Loading...</p>;
         if (error) return <p>{error.message}</p>;
-        const { title, image, price, description } = data.item;
+        console.log(data);
+        const { title, image, price, description, id, reviews } = data.item;
         return (
-          <SingleProdcutStyles>
-            <Head>
-              <title>{title}</title>
-            </Head>
-            {image && <img src={image} />}
-            <div className="details">
-              <h2>{title}</h2>
-              <span>{formatCurrency(price)}</span>
-              <AddToCart id={id} />
-              <p>{description}</p>
-            </div>
-          </SingleProdcutStyles>
+          <Wrapper>
+            <SingleProdcutStyles>
+              <Head>
+                <title>{title}</title>
+              </Head>
+              {image && <img src={image} />}
+              <div className="details">
+                <h2>{title}</h2>
+                <span>{formatCurrency(price)}</span>
+                <AddToCart id={id} />
+                <p>{description}</p>
+              </div>
+            </SingleProdcutStyles>
+            <AddReview id={id} />
+            <Reviews reviews={reviews} />
+          </Wrapper>
         );
       }}
     </Query>
