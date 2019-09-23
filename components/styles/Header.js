@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledHeader = styled.header`
   width: 100%;
   flex-shrink: 0;
-  height: 150px;
+  height: 100px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -45,13 +45,13 @@ const StyledHeader = styled.header`
   }
 
   .sub-bar {
-    width: 60%;
+    width: 100%;
     margin: 2rem auto;
-    display: none;
-
-    @media (max-width: 600px) {
-      width: 90%;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background: #f7e4e4;
   }
 
   .header-box {

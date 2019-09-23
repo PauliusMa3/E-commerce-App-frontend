@@ -5,7 +5,8 @@ import User from "./User";
 import { Mutation } from "react-apollo";
 import Signout from "./Signout";
 import { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION } from "./Cart";
-import { FaShoppingBag } from "react-icons/fa";
+import { LOCAL_SEARCH_MUTATION } from "./SearchForm";
+import { FaShoppingBag, FaSearch } from "react-icons/fa";
 
 const Nav = props => (
   <User>
@@ -23,6 +24,19 @@ const Nav = props => (
               <Link href="/orders">
                 <a>Orders</a>
               </Link>
+              <Mutation mutation={LOCAL_SEARCH_MUTATION}>
+                {toggleSearchOpen => (
+                  <FaSearch
+                    onClick={toggleSearchOpen}
+                    size={80}
+                    style={{
+                      color: "#393939",
+                      padding: "3rem 1rem",
+                      cursor: "pointer"
+                    }}
+                  />
+                )}
+              </Mutation>
 
               <Mutation mutation={TOGGLE_CART_MUTATION}>
                 {toggleCartOpen => (

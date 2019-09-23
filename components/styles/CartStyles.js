@@ -7,7 +7,8 @@ const CartStyles = styled.div`
   z-index: 100;
   transform: translateX(100%);
 
-  transition: all 0.2s;
+  /* transition: all 0.2s; */
+  transition: all 0.4s cubic-bezier(0.29, 0.63, 0.44, 1);
   border: 1px solid ${props => props.theme.lightgrey};
   top: 0;
   right: 0%;

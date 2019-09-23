@@ -8,9 +8,10 @@ import Pagination from "./Pagination";
 import { perPage } from "../config";
 import styled from "styled-components";
 
-
 const Center = styled.div`
   text-align: center;
+  margin-top: 120px;
+  margin-bottom: 100px;
 `;
 
 const ALL_PRODUCTS_QUERY = gql`
@@ -62,16 +63,13 @@ const Products = props => {
                 return (
                   <ProductStyles>
                     {data.items.map(product => (
-                      <Product
-                        key={product.id}
-                        product={product}
-                        user={me}
-                      />
+                      <Product key={product.id} product={product} user={me} />
                     ))}
                   </ProductStyles>
                 );
               }}
             </Query>
+            <Pagination page={props.page} />
           </Center>
         );
       }}

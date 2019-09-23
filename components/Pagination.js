@@ -23,10 +23,11 @@ const PaginationStyles = styled.div`
     font-size: 2rem;
     background: white;
     border: none;
+    cursor: pointer;
 
-    /* &:focus {
-      background: red;
-    } */
+    &:focus {
+      outline: none;
+    }
 
     &[disabled] {
       opacity: 0.5;
@@ -80,8 +81,6 @@ class Pagination extends Component {
             { length: pages },
             (value, index) => index + 1
           );
-
-          console.log("pages array", pagesArray);
           const page = this.props.page;
           return (
             <PaginationStyles>

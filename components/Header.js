@@ -61,9 +61,9 @@ const Header = () => {
 
         <Cart />
       </div>
-      <div className="sub-bar">
+      {/* <div className="sub-bar">
         <SearchForm />
-      </div>
+      </div> */}
     </StyledHeader>
   );
 };

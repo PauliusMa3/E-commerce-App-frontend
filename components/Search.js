@@ -77,6 +77,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px;
   p {
     font-size: 2rem;
     letter-spacing: 1px;

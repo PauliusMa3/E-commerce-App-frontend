@@ -51,11 +51,11 @@ const Cart = () => (
                     {toggleCartOpen => {
                       return (
                         // <button onClick={toggleCartOpen}>
-                        <img
-                          src={CloseIcon}
-                          alt="Close"
-                          onClick={toggleCartOpen}
-                        />
+                          <img
+                            src={CloseIcon}
+                            alt="Close"
+                            onClick={toggleCartOpen}
+                          />
                         // </button>
                       );
                     }}

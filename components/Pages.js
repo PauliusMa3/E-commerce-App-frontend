@@ -3,10 +3,12 @@ import Meta from "./Meta";
 import styled, { ThemeProvider } from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SearchForm from '../components/SearchForm';
 
 const theme = {
   lightgrey: "#E1E1E1",
   offWhite: "#EDEDED",
+  lightGrey100: '#F5f5f5',
   lightGrey200: "#EEEEEE",
   grey: "#9E9E9E",
   blue: "#1E88E5",
@@ -45,6 +47,7 @@ class Pages extends Component {
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Header />
+          <SearchForm />
           <Meta />
           <Inner>{this.props.children}</Inner>
           <Footer />
