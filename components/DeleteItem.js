@@ -38,7 +38,7 @@ class DeleteItem extends Component {
               top: "10",
               right: "10"
             }}
-            size={16}
+            size={20}
             onClick={() => {
               if (confirm("Are you sure to remove this item?")) {
                 deleteItem().catch(err => alert(err.message));

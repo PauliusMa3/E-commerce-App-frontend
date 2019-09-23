@@ -4,6 +4,7 @@ import { Mutation } from "react-apollo";
 import ReviewForm from "./styles/ReviewForm";
 import Error from "./Error";
 import Router from "next/router";
+import {SINGLE_ITEM_QUERY} from './SingleProduct'
 
 const ADD_REVIEW_MUTATION = gql`
   mutation ADD_REVIEW_MUTATION(
@@ -32,6 +33,7 @@ class AddReview extends Component {
     return (
       <Mutation
         mutation={ADD_REVIEW_MUTATION}
+        refetchQueries={[{query: SINGLE_ITEM_QUERY}]}
         variables={{
           itemId: this.props.id,
           text: this.state.text,
@@ -48,9 +50,6 @@ class AddReview extends Component {
                 e.preventDefault();
 
                 const result = await addReview();
-
-                console.log("result of add review", result);
-                Router.back();
               }}
             >
               <textarea

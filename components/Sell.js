@@ -27,10 +27,9 @@ const CREATE_PRODUCT_MUTATION = gql`
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 3rem 0;
+  margin: 120px auto 0 auto;
+
+  max-width: 900px;
 `;
 
 class Sell extends Component {
@@ -92,49 +91,41 @@ class Sell extends Component {
                 }}
               >
                 <fieldset disabled={loading}>
-                  <label htmlFor="title">
-                    Title:
-                    <input
-                      id="title"
-                      type="text"
-                      name="title"
-                      placeholder="Product Title"
-                      value={this.state.title}
-                      onChange={this.changeHandler}
-                    />
-                  </label>
-                  <label htmlFor="file">
-                    Product Image:
-                    <input
-                      id="file"
-                      type="file"
-                      name="file"
-                      placeholder="Product Image"
-                      onChange={this.fileHandler}
-                    />
-                  </label>
-                  <label htmlFor="price">
-                    Product Price:
-                    <input
-                      id="price"
-                      type="number"
-                      name="price"
-                      placeholder="Product Price"
-                      value={this.state.price}
-                      onChange={this.changeHandler}
-                    />
-                  </label>
-                  <label htmlFor="description">
-                    Product Description:
-                    <textarea
-                      id="description"
-                      name="description"
-                      placeholder="Product Description"
-                      className="product-form--textarea"
-                      value={this.state.description}
-                      onChange={this.changeHandler}
-                    />
-                  </label>
+                  <label htmlFor="title">Title:</label>
+                  <input
+                    id="title"
+                    type="text"
+                    name="title"
+                    placeholder="Product Title"
+                    value={this.state.title}
+                    onChange={this.changeHandler}
+                  />
+                  <label htmlFor="file">Product Image:</label>
+                  <input
+                    id="file"
+                    type="file"
+                    name="file"
+                    placeholder="Product Image"
+                    onChange={this.fileHandler}
+                  />
+                  <label htmlFor="price">Product Price:</label>
+                  <input
+                    id="price"
+                    type="number"
+                    name="price"
+                    placeholder="Product Price"
+                    value={this.state.price}
+                    onChange={this.changeHandler}
+                  />
+                  <label htmlFor="description">Product Description:</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Product Description"
+                    className="product-form--textarea"
+                    value={this.state.description}
+                    onChange={this.changeHandler}
+                  />
                   <button className="product-form--button" type="Submit">
                     Submit
                   </button>

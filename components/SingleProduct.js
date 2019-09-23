@@ -32,8 +32,9 @@ const SINGLE_ITEM_QUERY = gql`
 const SingleProdcutStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* grid-auto-rows: 1fr; */
   grid-template-rows: 1fr;
+  margin-top: 100px;
+  
 
   grid-gap: 2rem;
   justify-items: center;
@@ -71,8 +72,7 @@ const SingleProdcutStyles = styled.div`
 `;
 
 const Wrapper = styled.div`
-  max-width: 1000px;
-
+  max-width: 1200px;
   margin: 4rem auto;
 `;
 
@@ -83,7 +83,6 @@ const SingleProduct = props => {
       {({ data, loading, error }) => {
         if (loading) return <p>Loading...</p>;
         if (error) return <p>{error.message}</p>;
-        console.log(data);
         const { title, image, price, description, id, reviews } = data.item;
         return (
           <Wrapper>
@@ -109,3 +108,5 @@ const SingleProduct = props => {
 };
 
 export default SingleProduct;
+
+export {SINGLE_ITEM_QUERY};

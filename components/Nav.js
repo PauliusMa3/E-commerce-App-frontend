@@ -5,8 +5,7 @@ import User from "./User";
 import { Mutation } from "react-apollo";
 import Signout from "./Signout";
 import { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION } from "./Cart";
-
-import CartIcon from "../assets/icons/shopping-cart.svg";
+import { FaShoppingBag } from "react-icons/fa";
 
 const Nav = props => (
   <User>
@@ -27,9 +26,15 @@ const Nav = props => (
 
               <Mutation mutation={TOGGLE_CART_MUTATION}>
                 {toggleCartOpen => (
-                  <button onClick={toggleCartOpen}>
-                    <img src={CartIcon} alt="Shopping Cart" />
-                  </button>
+                  <FaShoppingBag
+                    onClick={toggleCartOpen}
+                    size={80}
+                    style={{
+                      color: "#393939",
+                      padding: "3rem 1rem",
+                      cursor: "pointer"
+                    }}
+                  />
                 )}
               </Mutation>
               <Signout />

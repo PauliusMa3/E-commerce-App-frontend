@@ -4,9 +4,11 @@ import gql from "graphql-tag";
 import OrderStyles from "../components/styles/OrderStyles";
 import format from "date-fns/format";
 import formatCurrency from "./utils/formatCurrency";
-import Router from "next/router";
-import Link from "next/link";
 import styled from "styled-components";
+
+const Wrapper = styled.div`
+  margin-top: 120px;
+`;
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
@@ -44,7 +46,7 @@ class Orders extends Component {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>{error.message}</p>;
           return (
-            <div>
+            <Wrapper>
               {orders.map(order => (
                 <OrderStyles>
                   <header className="order-header">
@@ -98,7 +100,7 @@ class Orders extends Component {
                   </div>
                 </OrderStyles>
               ))}
-            </div>
+            </Wrapper>
           );
         }}
       </Query>

@@ -10,9 +10,9 @@ import ContactUsIcon from "../assets/icons/call-center.svg";
 const Wrapper = styled.div`
   margin: 0;
   padding: 0;
-  position: absolute;
-  height: 100%;
+  height: 90vh;
   width: 100%;
+  margin-top: 100px;
   .image {
     display: flex;
     justify-content: center;
@@ -21,25 +21,21 @@ const Wrapper = styled.div`
     width: 100%;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       top: 0;
       left: 0;
       z-index: 1;
     }
   }
 
-
-
   img {
     object-fit: cover;
     height: 100%;
     width: 100%;
-
-
   }
 
   h1 {
@@ -59,6 +55,10 @@ const Wrapper = styled.div`
     z-index: 2;
     font-size: 2rem;
     box-shadow: 0 4px 12px rgba(102, 102, 102, 0.15);
+
+    @media only screen and (min-width: 320px) and (max-width: 600px) {
+      width: 90%;
+    }
 
     .contact-us-icon {
       height: 75px;

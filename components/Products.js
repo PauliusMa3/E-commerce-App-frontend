@@ -8,6 +8,7 @@ import Pagination from "./Pagination";
 import { perPage } from "../config";
 import styled from "styled-components";
 
+
 const Center = styled.div`
   text-align: center;
 `;
@@ -27,23 +28,23 @@ const ALL_PRODUCTS_QUERY = gql`
 `;
 
 const Products = props => {
-  const checkPermissions = (user, item) => {
-    if (!user) {
-      return false;
-    }
-    const requiredPermission = ["ADMIN", "ITEMDELETE"];
-    const hasPermissions = user.permissions.some(permission =>
-      requiredPermission.includes(permission)
-    );
+  // const checkPermissions = (user, item) => {
+  //   if (!user) {
+  //     return false;
+  //   }
+  //   const requiredPermission = ["ADMIN", "ITEMDELETE"];
+  //   const hasPermissions = user.permissions.some(permission =>
+  //     requiredPermission.includes(permission)
+  //   );
 
-    const ownsItem = item.user.id === user.id;
+  //   const ownsItem = item.user.id === user.id;
 
-    if (ownsItem || hasPermissions) {
-      return true;
-    }
+  //   if (ownsItem || hasPermissions) {
+  //     return true;
+  //   }
 
-    return false;
-  };
+  //   return false;
+  // };
   return (
     <User>
       {({ data: { me } }) => {
@@ -64,7 +65,7 @@ const Products = props => {
                       <Product
                         key={product.id}
                         product={product}
-                        hasPermissions={checkPermissions(me, product)}
+                        user={me}
                       />
                     ))}
                   </ProductStyles>

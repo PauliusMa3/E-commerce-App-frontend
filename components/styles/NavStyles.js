@@ -3,6 +3,7 @@ import styled from "styled-components";
 const NavStyles = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin: 0;
   padding: 0;
 
@@ -10,11 +11,11 @@ const NavStyles = styled.div`
     display: ${props => (props.expanded ? "flex" : "none")};
 
     flex-direction: column;
-    width: 0%;
     justify-content: center;
     position: fixed;
-    top: 70px;
+    top: 100px;
     left: 0;
+    transform: translateY(100%);
     z-index: 9999;
     background: red;
     width: 100%;
@@ -29,10 +30,8 @@ const NavStyles = styled.div`
     border: 0;
     font-size: 1.5rem;
     text-decoration: none;
-    display: flex;
     background: none;
     font-family: "Montserrat";
-    align-items: center;
     padding: 1rem 3rem;
     color: ${props => props.theme.black};
     font-weight: 300;

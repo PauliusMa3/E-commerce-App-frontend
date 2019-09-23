@@ -1,9 +1,10 @@
 import Products from "../components/Products";
+import Home from "../components/Home";
 
-const Home = props => (
+const HomePage = props => (
   <div>
-    <Products page={parseFloat(props.query.page) || 1} />
+    <Home />
   </div>
 );
 
-export default Home;
+export default HomePage;

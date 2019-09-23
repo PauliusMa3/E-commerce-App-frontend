@@ -4,6 +4,11 @@ const StyledHeader = styled.header`
   width: 100%;
   flex-shrink: 0;
   height: 150px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5000;
 
   /* .sub-bar {
     display: none;
@@ -25,7 +30,9 @@ const StyledHeader = styled.header`
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: flex-end;
-    background: ${props => props.theme.offWhite};
+    align-items: center;
+    background: white;
+    height: 100px;
 
     @media only screen and (min-width: 320px) and (max-width: 600px) {
       padding: 1rem;
@@ -40,6 +47,7 @@ const StyledHeader = styled.header`
   .sub-bar {
     width: 60%;
     margin: 2rem auto;
+    display: none;
 
     @media (max-width: 600px) {
       width: 90%;
