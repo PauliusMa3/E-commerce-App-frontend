@@ -19,32 +19,34 @@ const Product = ({ product, user }) => {
         </Link>
       </ProductTitle>
       <span className="product-price">{formatCurrency(product.price)}</span>
-      {checkPermissions(user, product, ["ADMIN", "ITEMDELETE"]) && (
+      {/* {checkPermissions(user, product, ["ADMIN", "ITEMDELETE"]) && (
         <DeleteItem id={product.id} className="delete-button" />
-      )}
-      <Link
-        href={{
-          pathname: "/edit",
-          query: {
-            id: product.id
-          }
-        }}
-      >
-        <FaEdit
-          style={{
-            cursor: "pointer",
-            position: "absolute",
-            top: "10",
-            left: "10",
-            visibility: `${
-              checkPermissions(user, product, ["ADMIN", "ITEMUPDATE"])
-                ? "visible"
-                : "hidden"
-            }`
+      )} */}
+      {user && (
+        <Link
+          href={{
+            pathname: "/edit",
+            query: {
+              id: product.id
+            }
           }}
-          size={20}
-        />
-      </Link>
+        >
+          <FaEdit
+            style={{
+              cursor: "pointer",
+              position: "absolute",
+              top: "10",
+              left: "10",
+              visibility: `${
+                checkPermissions(user, product, ["ADMIN", "ITEMUPDATE"])
+                  ? "visible"
+                  : "hidden"
+              }`
+            }}
+            size={20}
+          />
+        </Link>
+      )}
       <AddToCart id={product.id} />
     </SingleProductStyles>
   );

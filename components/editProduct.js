@@ -61,7 +61,6 @@ class EditProduct extends Component {
               }}
             >
               {(editItem, { loading, error }) => {
-                console.log("DATAAA", data);
                 return (
                   <Wrapper>
                     <Form

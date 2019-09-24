@@ -9,6 +9,10 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   z-index: 5000;
+  
+  .header-icons {
+    display: flex;
+  }
 
   /* .sub-bar {
     display: none;
@@ -19,6 +23,7 @@ const StyledHeader = styled.header`
     @media only screen and (min-width: 320px) and (max-width: 600px) {
       display: block;
       height: 5rem;
+      order: 3;
       display: flex;
       align-items: center;
       padding: 1rem;
@@ -28,7 +33,7 @@ const StyledHeader = styled.header`
 
   .bar {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     justify-content: flex-end;
     align-items: center;
     background: white;
@@ -44,7 +49,7 @@ const StyledHeader = styled.header`
     }
   }
 
-  .sub-bar {
+  /* .sub-bar {
     width: 100%;
     margin: 2rem auto;
     display: flex;
@@ -52,7 +57,7 @@ const StyledHeader = styled.header`
     align-items: center;
     height: 100px;
     background: #f7e4e4;
-  }
+  } */
 
   .header-box {
     display: flex;

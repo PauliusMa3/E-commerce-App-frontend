@@ -8,6 +8,8 @@ import { ADD_TO_CART_MUTATION } from "./AddToCart";
 import { Mutation } from "react-apollo";
 import { USER_QUERY } from "./User";
 import gql from "graphql-tag";
+import CartItemStyles from "./styles/CartItemStyles";
+import QuantityButton from "./styles/QuantityButton";
 
 const UPDATE_QUANTITY_MUTATION = gql`
   mutation UPDATE_QUANTITY_MUTATION($id: ID!) {
@@ -16,26 +18,6 @@ const UPDATE_QUANTITY_MUTATION = gql`
     }
   }
 `;
-
-const CartItemStyles = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr 1fr auto;
-  grid-template-areas: "image details quantity remove";
-  align-items: center;
-  border-bottom: 1px solid ${props => props.theme.lightgrey};
-  padding: 0.7rem;
-  img {
-    width: 100px;
-    object-fit: cover;
-    margin-right: 10px;
-  }
-
-  .cart-item__price {
-    font-size: 1.2rem;
-    color: ${props => props.theme.grey};
-  }
-`;
-
 const Wrapper = styled.div`
   display: flex;
   grid-area: "quantity";
@@ -48,42 +30,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Button = styled.button`
-  border-radius: 5px;
-  border: 0;
-  position: relative;
-  width: 30px;
-  cursor: pointer;
-  transition: all 0.2s;
-
-  &:hover {
-    background: ${props => props.theme.grey};
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &[disabled] {
-    opacity: 0.5;
-  }
-
-  img {
-    width: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-`;
-
 const CartItem = props => {
   const {
     cartItem: { item }
   } = props;
   const { cartItem } = props;
-
-  console.log("itemeeliiss", cartItem);
   return (
     <CartItemStyles>
       <img src={item.image} alt="item image" />
@@ -114,14 +65,14 @@ const CartItem = props => {
           }}
         >
           {(addToCart, { loading }) => (
-            <Button
+            <QuantityButton
               disabled={loading}
               type="button"
               name="button"
               onClick={addToCart}
             >
               <img src={PlusIcon} alt="Add Quantity" />
-            </Button>
+            </QuantityButton>
           )}
         </Mutation>
         <input type="text" name="name" value={cartItem.quantity} />
@@ -138,14 +89,14 @@ const CartItem = props => {
           }}
         >
           {(updateQuantity, { loading }) => (
-            <Button
+            <QuantityButton
               disabled={loading}
               type="button"
               name="button"
               onClick={updateQuantity}
             >
               <img src={MinusIcon} alt="Remove Quantity" />
-            </Button>
+            </QuantityButton>
           )}
         </Mutation>
       </Wrapper>

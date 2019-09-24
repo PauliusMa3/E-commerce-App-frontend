@@ -7,56 +7,7 @@ import { perPage } from "../config";
 import Left from "../assets/icons/left-arrow.svg";
 import Right from "../assets/icons/arrow-point-to-right.svg";
 import Router from "next/router";
-
-const PaginationStyles = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0.8rem 0;
-  img {
-    height: 20px;
-  }
-
-  button {
-    padding: 1rem;
-    text-decoration: none;
-    font-size: 2rem;
-    background: white;
-    border: none;
-    cursor: pointer;
-
-    &:focus {
-      outline: none;
-    }
-
-    &[disabled] {
-      opacity: 0.5;
-    }
-  }
-
-  p {
-    font-size: 1.6rem;
-  }
-
-  .active {
-    background: red;
-  }
-`;
-
-const PageLinkStyles = styled.div`
-  a {
-    padding: 1rem;
-    text-decoration: none;
-    font-size: 2rem;
-    color: ${props => props.theme.black};
-    font-weight: 700;
-  }
-
-  a.clicked {
-    background: red;
-    border-radius: 50%;
-  }
-`;
+import PaginationStyles from "./styles/PaginationStyles";
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {

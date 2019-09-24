@@ -6,6 +6,10 @@ import StyledHeader from "./styles/Header";
 import Cart from "./Cart";
 import SearchForm from "./SearchForm";
 import MenuIcon from "../static/icons/menu.svg";
+import { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION } from "./Cart";
+import { Mutation } from "react-apollo";
+import { LOCAL_SEARCH_MUTATION } from "./SearchForm";
+import { FaShoppingBag, FaSearch } from "react-icons/fa";
 
 import nprogress from "nprogress";
 import Router from "next/router";
@@ -58,6 +62,36 @@ const Header = () => {
             setToggleMenu(!toggleMenu);
           }}
         />
+
+        <div className='header-icons'>
+          <Mutation mutation={LOCAL_SEARCH_MUTATION}>
+            {toggleSearchOpen => (
+              <FaSearch
+                onClick={toggleSearchOpen}
+                size={80}
+                style={{
+                  color: "#393939",
+                  padding: "3rem 1rem",
+                  cursor: "pointer"
+                }}
+              />
+            )}
+          </Mutation>
+
+          <Mutation mutation={TOGGLE_CART_MUTATION}>
+            {toggleCartOpen => (
+              <FaShoppingBag
+                onClick={toggleCartOpen}
+                size={80}
+                style={{
+                  color: "#393939",
+                  padding: "3rem 1rem",
+                  cursor: "pointer"
+                }}
+              />
+            )}
+          </Mutation>
+        </div>
 
         <Cart />
       </div>

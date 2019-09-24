@@ -2,6 +2,7 @@ import React from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import { USER_QUERY } from "./User";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const SIGNOUT_MUTATION = gql`
   mutation signout {
@@ -17,9 +18,7 @@ const Signout = () => {
       mutation={SIGNOUT_MUTATION}
       refetchQueries={[{ query: USER_QUERY }]}
     >
-      {signout => (
-        <button onClick={signout}>Sign out</button>
-      )}
+      {signout => <button onClick={signout}>Sign out</button>}
     </Mutation>
   );
 };

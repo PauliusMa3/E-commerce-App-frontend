@@ -2,20 +2,24 @@ import styled from "styled-components";
 
 const NavStyles = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   margin: 0;
   padding: 0;
 
   @media only screen and (min-width: 320px) and (max-width: 600px) {
-    display: ${props => (props.expanded ? "flex" : "none")};
+    display: flex;
 
     flex-direction: column;
     justify-content: center;
+
     position: fixed;
     top: 100px;
     left: 0;
-    transform: translateY(100%);
+    transform: translateX(-100%);
+    ${props => props.expanded && `transform: translateX(0)`};
+    transition: all 0.4s cubic-bezier(0.29, 0.63, 0.44, 1);
+    /* transform: translateY(100%); */
     z-index: 9999;
     background: red;
     width: 100%;

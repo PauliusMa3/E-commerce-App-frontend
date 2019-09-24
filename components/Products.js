@@ -29,23 +29,6 @@ const ALL_PRODUCTS_QUERY = gql`
 `;
 
 const Products = props => {
-  // const checkPermissions = (user, item) => {
-  //   if (!user) {
-  //     return false;
-  //   }
-  //   const requiredPermission = ["ADMIN", "ITEMDELETE"];
-  //   const hasPermissions = user.permissions.some(permission =>
-  //     requiredPermission.includes(permission)
-  //   );
-
-  //   const ownsItem = item.user.id === user.id;
-
-  //   if (ownsItem || hasPermissions) {
-  //     return true;
-  //   }
-
-  //   return false;
-  // };
   return (
     <User>
       {({ data: { me } }) => {

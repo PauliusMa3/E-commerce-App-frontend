@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Router from "next/router";
 import SearchIcon from "../assets/icons/search.svg";
 import gql from "graphql-tag";
+import SearchFormStyles from "./styles/SearchFormStyles";
 
 const LOCAL_SEARCH_QUERY = gql`
   query {
@@ -34,46 +35,6 @@ const Dropdown = styled.div`
   background: ${props => props.theme.lightGrey100};
 `;
 
-const Form = styled.form`
-  position: relative;
-  width: 60%;
-
-  input {
-    width: 100%;
-    padding: 1rem 1.2rem;
-    font-size: 1.8rem;
-    border: 1px solid ${props => props.theme.lightgrey};
-    &:focus {
-      outline: none;
-    }
-  }
-
-  button {
-    position: absolute;
-    right: 0;
-    background: ${props => props.theme.lightgrey};
-    height: 100%;
-    width: 50px;
-    border: 0;
-    transition: all 0.2s;
-    cursor: pointer;
-
-    &:focus,
-    &:active {
-      outline: none;
-    }
-
-    &:hover {
-      background: ${props => props.theme.grey};
-    }
-
-    img {
-      height: 20px;
-      z-index: 100;
-    }
-  }
-`;
-
 class SearchForm extends Component {
   state = {
     items: [],
@@ -100,12 +61,13 @@ class SearchForm extends Component {
     return (
       <Query query={LOCAL_SEARCH_QUERY}>
         {({ data }) => {
-          console.log("Search Open local state: ", data.searchOpen);
           return (
             <Mutation mutation={LOCAL_SEARCH_MUTATION}>
               {toggleSearchOpen => (
                 <Dropdown open={data.searchOpen}>
-                  <Form onSubmit={e => this.submitHandler(e, toggleSearchOpen)}>
+                  <SearchFormStyles
+                    onSubmit={e => this.submitHandler(e, toggleSearchOpen)}
+                  >
                     <input
                       type="text"
                       placeholder="Search"
@@ -119,7 +81,7 @@ class SearchForm extends Component {
                         alt="search icon"
                       />
                     </button>
-                  </Form>
+                  </SearchFormStyles>
                 </Dropdown>
               )}
             </Mutation>

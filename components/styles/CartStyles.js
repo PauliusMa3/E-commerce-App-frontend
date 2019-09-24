@@ -7,13 +7,15 @@ const CartStyles = styled.div`
   z-index: 100;
   transform: translateX(100%);
 
-  /* transition: all 0.2s; */
+  @media only screen and (min-width: 320px) and (max-width: 600px) {
+    min-width: 100%;
+  }
+
   transition: all 0.4s cubic-bezier(0.29, 0.63, 0.44, 1);
   border: 1px solid ${props => props.theme.lightgrey};
   top: 0;
   right: 0%;
-  width: 35%;
-  /* min-width: 500px; */
+  min-width: 500px;
   position: fixed;
   padding: 1rem;
   display: grid;
@@ -36,7 +38,6 @@ const CartStyles = styled.div`
     }
 
     button {
-      /* background: none; */
       border: 0;
 
       img {

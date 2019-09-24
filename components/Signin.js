@@ -11,7 +11,7 @@ import Error from "./Error";
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  margin: 7rem auto;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
