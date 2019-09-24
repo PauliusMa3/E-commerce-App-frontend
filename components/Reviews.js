@@ -13,8 +13,8 @@ const Reviews = props => {
   return (
     <Wrapper>
       <h2>Reviews ({props.reviews.length})</h2>
-      {props.reviews.map(review => (
-        <ReviewStyles>
+      {props.reviews.map((review,index) => (
+        <ReviewStyles key={index}>
           <div className="review__header">
             <div className="review__author">
               <p>

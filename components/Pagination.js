@@ -23,7 +23,7 @@ class Pagination extends Component {
   render() {
     return (
       <Query query={PAGINATION_QUERY}>
-        {({ data, loading, error }) => {
+        {({ data, loading, error }) => {;
           if (loading) return <p>loading...</p>;
           const totalProducts = data.itemsConnection.aggregate.count;
           const pages = Math.ceil(totalProducts / perPage);

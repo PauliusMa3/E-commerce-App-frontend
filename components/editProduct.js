@@ -66,14 +66,12 @@ class EditProduct extends Component {
                     <Form
                       onSubmit={async e => {
                         e.preventDefault();
-                        console.log(this.state);
                         const res = await editItem();
 
                         Router.push(
                           `/product?id=${this.props.id}`,
                           `/product/${this.props.id}`
                         );
-                        console.log(res);
                       }}
                     >
                       <fieldset>

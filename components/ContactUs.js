@@ -7,8 +7,8 @@ import gql from "graphql-tag";
 import LargeSpinner from "./Spinner/LargeSpinner";
 import ContactUsIcon from "../assets/icons/call-center.svg";
 import ContactUsStyles from "./styles/ContactUsStyles";
-import ContactFormStyles from './styles/ContactFormStyles';
-import ModalSuccessMessage from './styles/ModalSuccessMessage';
+import ContactFormStyles from "./styles/ContactFormStyles";
+import ModalSuccessMessage from "./styles/ModalSuccessMessage";
 
 const CONTACT_MUTATION = gql`
   mutation contactUsRequest(
@@ -64,7 +64,6 @@ const ContactUs = () => {
                   onSubmit={async e => {
                     e.preventDefault();
                     const result = await contactUsRequest();
-                    console.log(result.data.contactUsRequest.message);
                     setSuccessMessage(result.data.contactUsRequest.message);
                   }}
                 >
@@ -100,7 +99,7 @@ const ContactUs = () => {
                     value={inputs.message}
                     onChange={handleInputChange}
                   />
-                  <button onClick={() => console.log("hey")}>Send</button>
+                  <button type="submit">Send</button>
                 </ContactFormStyles>
               )}
             </Modal>

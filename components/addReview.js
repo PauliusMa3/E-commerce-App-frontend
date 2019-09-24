@@ -58,7 +58,7 @@ class AddReview extends Component {
                 placeholder="Have you bought this? Please share your experiece. Leave a review..."
                 onChange={this.handleInputChange}
               />
-              <div class="review-meta">
+              <div className="review-meta">
                 <span>Please select stars how would rate your experience</span>
                 <div className="review__stars">
                   <input

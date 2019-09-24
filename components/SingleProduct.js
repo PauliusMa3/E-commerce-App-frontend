@@ -34,7 +34,19 @@ const SingleProdcutStyles = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: 1fr;
   margin-top: 100px;
-  
+
+  h4 {
+    margin: 0;
+    .star {
+      font-size: 4rem;
+      margin-right: 1rem;
+      color: ${props => props.theme.yellow};
+    }
+
+    .average__rating {
+      font-size: 2rem;
+    }
+  }
 
   grid-gap: 2rem;
   justify-items: center;
@@ -82,6 +94,11 @@ const SingleProduct = props => {
     <Query query={SINGLE_ITEM_QUERY} variables={{ id }}>
       {({ data, loading, error }) => {
         if (loading) return <p>Loading...</p>;
+        const sum = data.item.reviews.reduce(
+          (acc, item) => acc + item.rating,
+          0
+        );
+        const averageRating =sum / data.item.reviews.length;
         if (error) return <p>{error.message}</p>;
         const { title, image, price, description, id, reviews } = data.item;
         return (
@@ -93,6 +110,10 @@ const SingleProduct = props => {
               {image && <img src={image} />}
               <div className="details">
                 <h2>{title}</h2>
+                <h4>
+                  <span className="star">{`★`}</span>
+                  <span className="average__rating">{averageRating.toFixed(2) } / 5</span>
+                </h4>
                 <span>{formatCurrency(price)}</span>
                 <AddToCart id={id} />
                 <p>{description}</p>
@@ -109,4 +130,4 @@ const SingleProduct = props => {
 
 export default SingleProduct;
 
-export {SINGLE_ITEM_QUERY};
+export { SINGLE_ITEM_QUERY };

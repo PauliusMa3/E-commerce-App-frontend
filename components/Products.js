@@ -40,7 +40,6 @@ const Products = props => {
               variables={{ skip: perPage * props.page - perPage }}
             >
               {({ data, loading, error }) => {
-                console.log("pagination data: ", data);
                 if (loading) return <p>Loading...</p>;
                 if (error) return <p>{error.message}</p>;
                 return (

@@ -9,7 +9,6 @@ import AddToCart from "./AddToCart";
 import checkPermissions from "./utils/checkPermissions";
 
 const Product = ({ product, user }) => {
-  console.log("user on the single product: ", user);
   return (
     <SingleProductStyles>
       {product.image && <img src={product.image} alt={product.title} />}
